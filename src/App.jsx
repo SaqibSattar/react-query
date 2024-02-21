@@ -1,11 +1,15 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import { HomePage } from './components/Home.page.jsx';
 import { RQSuperHeroesPage } from './components/RQSuperHeroes.page.jsx';
 import { SuperHeroesPage } from './components/SuperHeroes.page.jsx';
 
+const queryClient = new QueryClient();
+
 function App() {
   return (
+    <QueryClientProvider client={queryClient}>
     <Router>
       <div>
         <nav>
@@ -28,6 +32,7 @@ function App() {
         </Routes>
       </div>
     </Router>
+    </QueryClientProvider>
   );
 }
 
